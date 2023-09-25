@@ -1,0 +1,27 @@
+<h4 style="color: red;">Add Car</h4>
+<div class="container mt-0">
+    <div class="row justify-content-center">
+      <div class="col-lg-18 col-md-24">
+        <form [formGroup]="AddCar" (ngSubmit)="onSubmit(AddCar.value)" class="car-form">
+          <div class="form-group">
+            <label for="Brand">Brand:</label>
+            <input type="text" formControlName="Brand" class="form-control">
+          </div>
+  
+          <div class="form-group">
+            <label for="pricePerHour">Price per Hour:</label>
+            <input type="number" formControlName="pricePerHour" class="form-control">
+          </div>
+  
+          <div class="form-group">
+            <label for="Description">Description:</label>
+            <textarea formControlName="Description" class="form-control" rows="4"></textarea>
+          </div>
+  
+          <button type="submit"[disabled]="AddCar.invalid"class="btn btn-primary">Add Car</button>
+          <button type="submit"class="btn btn-primary mt-2" (click)="GoBack()">Back</button>
+        </form>
+      </div>
+    </div>
+   
+  </div>

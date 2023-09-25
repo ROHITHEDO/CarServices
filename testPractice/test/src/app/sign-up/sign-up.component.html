@@ -1,0 +1,46 @@
+<p>sign-up works!</p>
+
+<div class="container-fluid" id="login-form">
+    <div id="login-head">
+        <h1>SignUp</h1>
+   </div>
+   <div id="login-details">
+    <form [formGroup]="UserObj" (ngSubmit)="onSubmit(UserObj.value)">
+        
+        <div class="form-group" id="data">
+            <label>UserName</label>
+            <input type="text" [class.is-invalid]="name.invalid && name.touched" formControlName="Username" class="form-control">
+            <small class="text-danger" *ngIf="name.invalid && name.touched">UserName is required</small>
+          </div>
+          
+        <div class="form-group" id="data">
+            <label>Email</label>
+            <input type="email" email="true" [class.is-invalid]="email.invalid && email.touched" formControlName="Email" class="form-control">
+            <small class="text-danger" *ngIf="email.invalid && email.touched">Email is required and must be in desired pattern</small>
+        </div>
+        <div class="form-group" id="data">
+            <label>Password</label>
+            <input type="password" [class.is-invalid]="password.invalid && password.touched" formControlName="Password" class="form-control">
+         <div *ngIf="password.invalid && password.touched">
+
+            <small class="text-danger" *ngIf="password.invalid && password.touched">Password is required </small>
+            <small class="text-danger" *ngIf="password.errors?.['invalidStartChar']">and must begin with Upper Letter </small>
+            <small class="text-danger" *ngIf="password.errors?.['noNumber']">and must Contain number from 0-9 </small>
+            <small class="text-danger" *ngIf="password.errors?.['noSpecialSymbol']">and must Contain Special Symbol </small>
+        </div>
+       
+        </div>
+        <div class="form-group" id="data">
+            <label>Confirm Password</label>
+            <input type="password" [class.is-invalid]="UserObj.errors?.['Mismatch']" formControlName="ConfirmPassword" class="form-control">
+            <div  *ngIf="UserObj.errors?.['Mismatch']" class="text-danger">
+                Passwords do not match
+              </div>
+        </div> 
+      <div id="submit">
+            <button type="submit" [disabled]="UserObj.invalid" class="btn btn-primary btn1">Register</button>
+            <button  type="submit" class="btn btn-primary mx-2" (click)="GoToLogin()">BackToLogin</button> 
+        </div>
+    </form>
+   </div>
+</div>

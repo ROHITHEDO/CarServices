@@ -1,0 +1,31 @@
+
+<h4 style="color: red;">Book car</h4>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-18 col-md-24">
+        <form [formGroup]="bookingForm" (ngSubmit)="onSubmit(bookingForm.value)" class="car-form">
+         
+  
+          <div class="form-group">
+            <label for="From">From:</label>
+            <input type="datetime-local" formControlName="From" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="To">To:</label>
+            <input type="datetime-local" formControlName="To" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="To">TotalRent:</label>
+            <span>{{totalRent}}</span>
+          </div>
+
+  
+          
+  
+          <button type="submit"[disabled]="bookingForm.invalid"class="btn btn-primary">Book Car</button>
+          <button type="submit"class="btn btn-primary mt-2" (click)="GoBack()">Back</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

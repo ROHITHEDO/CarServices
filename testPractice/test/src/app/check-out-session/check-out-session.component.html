@@ -1,0 +1,15 @@
+<div>
+    <span style="color: red; font-weight: bolder;">Click Image to open</span>
+   <div style="float: right;border: 2px solid black; margin-right: 20px; margin-top: 20px;"><p-dropdown  [options]="availableCoupon" optionLabel="id" scrollHeight="300px"placeholder="Select a coupon" (onChange)="onDropdownChange($event)"></p-dropdown></div>
+</div>
+<div>
+  
+    <div>
+        <a href="{{ url }}" target="_blank">
+            <img [src]=" open_image" alt="Product Image" class="center"/>
+        
+        </a>
+    </div>
+    
+    
+</div>

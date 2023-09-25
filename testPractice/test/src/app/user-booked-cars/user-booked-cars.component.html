@@ -1,0 +1,39 @@
+<p>see-book-car works!</p>
+<div style="margin:20px; margin-right: 80px;">
+  <button type="submit"class="btn btn-primary mx-3" (click)="GoBack()">Back</button>
+<button type="button" class="btn btn-primary mr-4 " style="float: right;" (click)="ProceedToPay()" >Proceed to pay</button>
+<div class="table-container" >
+    <table>
+     
+      <thead>
+       
+        <tr>
+          <th>ModelName</th>
+          <th>To</th>
+          <th >From</th>
+          <th>Price</th>
+          <th>TotalRent</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of  bookedCars">
+         
+          <td>{{ product.modelName }}</td>
+          <td>{{ product.to }}</td>
+          <td>{{product.from}}</td>
+          <td>{{product.price}}</td>
+          <td>{{product.totalRent}}</td>
+          <td> <p-button icon="pi pi-arrow-down" (click)="confirmDelete(product)"   label="Delete" styleClass="p-button-warning"></p-button>
+          
+          </td>
+        </tr>
+        <div style="color:red;font-weight: bolder;"> Total Amount To pay:{{totalAmountToPay}}</div>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+  <p-toast></p-toast>
+  <p-confirmDialog></p-confirmDialog>
+  
